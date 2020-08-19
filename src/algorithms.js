@@ -13,20 +13,38 @@
 // Output: True
 // Explanation:  h is replaced with m
 
+// mope and open
+
 let exampleOne = "string"
 let exampleTwo = ""
 
 let arrayOne = []
 let arrayTwo = []
 
-const checkString = (string1) => {
-    for (let i = 0; i < string1.length; i++) {
-        arrayOne.push(string1[i])
-    }
-    return arrayOne
-}
+let changes = 0
 
-console.log(checkString("string"))
+const checkString = (string1, string2) => {
+    let changes = 0
+
+    if (string1 === string2) {
+        return false
+}   else if (string1.length === string2.length){
+        for (let i = 0; i < string1.length; i++) {
+        // arrayOne.push(string1[i])
+            for (let j = 0; j < string2.length; j++) {
+                if (string1[i] === string2[j] && changes <= 1) {
+                    return true
+            } else {
+                changes++
+            }
+        }
+            return changes < 2
+        } 
+    }
+    }
+
+
+console.log(checkString("mope", "open"))
 
 // h a t and z a t
 
